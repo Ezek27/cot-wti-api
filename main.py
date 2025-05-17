@@ -36,6 +36,17 @@ def get_cot_csv():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
+@app.route("/")
+def index():
+    return """
+    <h2>COT WTI API</h2>
+    <p>Endpoints disponibles :</p>
+    <ul>
+        <li><a href="/cot">/cot</a> – Données brutes au format JSON</li>
+        <li><a href="/cot/csv">/cot/csv</a> – Données formatées au format CSV</li>
+    </ul>
+    """
+
 # Lancement serveur pour Render
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
