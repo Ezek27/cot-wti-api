@@ -12,7 +12,7 @@ def get_cot():
         response = requests.get(GOOGLE_SHEET_API)
         response.raise_for_status()
         data = response.json()
-        return jsonify(data[-100:])
+        return jsonify(data)
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
